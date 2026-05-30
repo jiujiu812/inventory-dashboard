@@ -14,17 +14,16 @@
   .container { max-width: 1280px; margin: 0 auto; padding: 24px 32px; }
 
   .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px; }
-  .stat-card { background: #fff; border-radius: 12px; padding: 18px 20px; display: flex; gap: 14px; }
-  .stat-card .icon { font-size: 26px; line-height: 1; padding-top: 2px; }
-  .stat-card .info { flex: 1; min-width: 0; }
-  .stat-card .header-row { display: flex; align-items: baseline; gap: 8px; margin-bottom: 8px; }
-  .stat-card .num { font-size: 26px; font-weight: 700; line-height: 1; }
+  .stat-card { background: #fff; border-radius: 12px; padding: 18px 20px; }
+  .stat-card .head { display: flex; align-items: baseline; gap: 10px; margin-bottom: 12px; }
+  .stat-card .icon { font-size: 22px; }
+  .stat-card .num { font-size: 24px; font-weight: 700; line-height: 1; }
   .stat-card .label { font-size: 12px; color: #777; }
-  .stat-card .items { font-size: 12px; line-height: 1.5; }
-  .stat-card .item { display: flex; justify-content: space-between; padding: 3px 0; border-bottom: 1px dashed #f0f0f0; }
-  .stat-card .item:last-child { border-bottom: none; }
-  .stat-card .item-name { font-weight: 500; color: #333; }
-  .stat-card .item-stock { color: #999; font-size: 11px; }
+  .stat-card .items .item-row { padding: 8px 0; border-bottom: 1px dashed #f0f0f0; }
+  .stat-card .items .item-row:last-child { border-bottom: none; }
+  .stat-card .item-name { font-size: 13px; font-weight: 600; color: #1a1a1a; margin-bottom: 4px; }
+  .stat-card .item-action { font-size: 13px; font-weight: 600; line-height: 1.3; }
+  .stat-card .item-meta { font-size: 11px; color: #999; margin-top: 2px; }
   .stat-card.urgent { border-left: 4px solid #ef4444; }
   .stat-card.warning { border-left: 4px solid #f97316; }
   .stat-card.ok { border-left: 4px solid #22c55e; }
@@ -34,30 +33,36 @@
 
   .charts { display: grid; grid-template-columns: 2fr 1fr; gap: 16px; margin-bottom: 24px; }
   .chart-card { background: #fff; border-radius: 12px; padding: 20px 24px; }
-  .chart-card h2 { font-size: 13px; font-weight: 600; color: #555; margin-bottom: 14px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .chart-card h2 { font-size: 13px; font-weight: 600; color: #555; margin-bottom: 14px; letter-spacing: 0.5px; }
   .chart-wrap { position: relative; }
 
-  .section-title { font-size: 13px; font-weight: 600; color: #555; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px; }
+  .section-title { font-size: 13px; font-weight: 600; color: #555; letter-spacing: 0.5px; margin-bottom: 12px; }
   .product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 24px; }
-  .product-card { background: #fff; border-radius: 10px; padding: 14px 16px; border-top: 3px solid #e5e5e5; }
+  .product-card { background: #fff; border-radius: 10px; padding: 16px; border-top: 3px solid #e5e5e5; }
   .product-card.urgent { border-top-color: #ef4444; }
   .product-card.warning { border-top-color: #f97316; }
   .product-card.ok { border-top-color: #22c55e; }
-  .product-card .name { font-size: 13px; font-weight: 600; margin-bottom: 8px; color: #1a1a1a; }
-  .product-card .metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; margin-bottom: 8px; }
-  .product-card .val { font-size: 18px; font-weight: 700; line-height: 1; }
-  .product-card .lbl { font-size: 11px; color: #999; margin-top: 2px; }
-  .product-card.urgent .days-val { color: #ef4444; }
-  .product-card.warning .days-val { color: #f97316; }
-  .product-card.ok .days-val { color: #22c55e; }
-  .product-card .pack-info { font-size: 11px; color: #888; padding-top: 6px; border-top: 1px dashed #f0f0f0; }
-  .product-card .pack-warn { color: #f97316; font-weight: 600; }
-  .product-card .pack-ok { color: #22c55e; }
+  .product-card .pname { font-size: 14px; font-weight: 600; margin-bottom: 12px; color: #1a1a1a; }
 
-  .progress-wrap { margin-top: 8px; }
-  .progress-bar { height: 5px; background: #f0f0f0; border-radius: 3px; overflow: hidden; }
-  .progress-fill { height: 100%; border-radius: 3px; }
-  .progress-label { font-size: 10px; color: #999; margin-top: 3px; }
+  /* 关键日期区块 */
+  .key-dates { background: #fafafa; border-radius: 6px; padding: 10px 12px; margin-bottom: 10px; }
+  .key-dates .row { display: flex; justify-content: space-between; padding: 3px 0; font-size: 12px; }
+  .key-dates .row .lbl { color: #888; }
+  .key-dates .row .val { font-weight: 600; }
+  .key-dates .row.start .val { font-size: 13px; }
+  .product-card.urgent .key-dates .start .val { color: #ef4444; }
+  .product-card.warning .key-dates .start .val { color: #f97316; }
+  .product-card.ok .key-dates .start .val { color: #22c55e; }
+  .key-dates .out .val { color: #555; }
+
+  /* 详细数据区 */
+  .detail { font-size: 11px; color: #999; line-height: 1.6; }
+  .detail .line { display: flex; justify-content: space-between; }
+
+  .pack-info { font-size: 11px; padding: 6px 8px; margin-top: 8px; border-radius: 4px; }
+  .pack-info.warn { background: #fff7ed; color: #c2410c; }
+  .pack-info.good { background: #f0fdf4; color: #166534; }
+  .pack-info.none { background: #fafafa; color: #888; }
 
   .footer { text-align: center; font-size: 12px; color: #bbb; padding: 16px; }
 </style>
@@ -73,34 +78,44 @@
 
   <div class="stats">
     <div class="stat-card urgent">
-      <div class="icon">🚨</div>
-      <div class="info">
-        <div class="header-row">
-          <div class="num">1</div>
-          <div class="label">紧急 · 今天联系供应商</div>
-        </div>
-        <div class="items"><div class="item"><span class="item-name">不锈钢茶勺</span><span class="item-stock">库存 440 / 10天</span></div></div>
+      <div class="head">
+        <div class="icon">🚨</div>
+        <div class="num">1</div>
+        <div class="label">紧急 · 立即下单</div>
       </div>
+      <div class="items"><div class="item-row">
+      <div class="item-name">不锈钢茶勺</div>
+      <div class="item-action" style="color:#ef4444">今天必须下单</div>
+      <div class="item-meta">断货 6月9日（周二）</div>
+    </div></div>
     </div>
     <div class="stat-card warning">
-      <div class="icon">⚡</div>
-      <div class="info">
-        <div class="header-row">
-          <div class="num">0</div>
-          <div class="label">注意 · 本周内启动</div>
-        </div>
-        <div class="items"><div class="item"><span class="item-name" style="color:#bbb">无</span></div></div>
+      <div class="head">
+        <div class="icon">⚡</div>
+        <div class="num">0</div>
+        <div class="label">本周内启动</div>
       </div>
+      <div class="items"><div class="item"><span class="item-name" style="color:#bbb">无</span></div></div>
     </div>
     <div class="stat-card ok">
-      <div class="icon">✅</div>
-      <div class="info">
-        <div class="header-row">
-          <div class="num">11</div>
-          <div class="label">充足 · 可用 28+ 天</div>
-        </div>
-        <div class="items"><div class="item"><span class="item-name">云境抹茶40g罐装</span><span class="item-stock">库存 365 / 28天</span></div><div class="item"><span class="item-name">听森抹茶粉50g罐装</span><span class="item-stock">库存 866 / 33天</span></div><div class="item"><span class="item-name">云境抹茶100g袋装</span><span class="item-stock">库存 66 / 35天</span></div><div class="item"><span class="item-name">摇摇杯</span><span class="item-stock">库存 99 / 48天</span></div><div class="item"><span class="item-name" style="color:#999">…还有 7 个</span></div></div>
+      <div class="head">
+        <div class="icon">✅</div>
+        <div class="num">11</div>
+        <div class="label">库存充足</div>
       </div>
+      <div class="items"><div class="item-row">
+      <div class="item-name">云境抹茶40g罐装</div>
+      <div class="item-action" style="color:#22c55e">6月10日（周三）前下单</div>
+      <div class="item-meta">断货 6月27日（周六）</div>
+    </div><div class="item-row">
+      <div class="item-name">听森抹茶粉50g罐装</div>
+      <div class="item-action" style="color:#22c55e">6月22日（周一）前下单</div>
+      <div class="item-meta">断货 7月2日（周四）</div>
+    </div><div class="item-row">
+      <div class="item-name">云境抹茶100g袋装</div>
+      <div class="item-action" style="color:#22c55e">6月17日（周三）前下单</div>
+      <div class="item-meta">断货 7月4日（周六）</div>
+    </div><div class="item-row"><div class="item-meta">…还有 8 个充足</div></div></div>
     </div>
   </div>
 
@@ -115,7 +130,7 @@
     </div>
   </div>
 
-  <div class="section-title">商品库存详情（含包装库存）</div>
+  <div class="section-title">商品库存详情</div>
   <div class="product-grid" id="productGrid"></div>
 
 </div>
@@ -134,7 +149,11 @@ const products = [
     "restock": 10,
     "hasPack": true,
     "packStock": null,
-    "packDetail": "无外包装"
+    "moq": 1000,
+    "packCycle": 7,
+    "startDate": "2026-05-30",
+    "startDays": 0,
+    "outDate": "2026-06-09"
   },
   {
     "name": "云境抹茶40g罐装",
@@ -146,7 +165,11 @@ const products = [
     "restock": 17,
     "hasPack": false,
     "packStock": 0,
-    "packDetail": "云境40g外纸盒:0 / 云境贴纸（外盒+罐体）:0"
+    "moq": 1000,
+    "packCycle": 7,
+    "startDate": "2026-06-10",
+    "startDays": 11,
+    "outDate": "2026-06-27"
   },
   {
     "name": "听森抹茶粉50g罐装",
@@ -158,7 +181,11 @@ const products = [
     "restock": 10,
     "hasPack": true,
     "packStock": 1218,
-    "packDetail": "听森50g外纸盒:1218 / 听森贴纸（罐体）:1218"
+    "moq": 1000,
+    "packCycle": 7,
+    "startDate": "2026-06-22",
+    "startDays": 23,
+    "outDate": "2026-07-02"
   },
   {
     "name": "云境抹茶100g袋装",
@@ -170,7 +197,11 @@ const products = [
     "restock": 17,
     "hasPack": false,
     "packStock": 0,
-    "packDetail": "云境100g黑色袋:0 / 云境100g贴纸:200"
+    "moq": 100,
+    "packCycle": 7,
+    "startDate": "2026-06-17",
+    "startDays": 18,
+    "outDate": "2026-07-04"
   },
   {
     "name": "摇摇杯",
@@ -182,7 +213,11 @@ const products = [
     "restock": 17,
     "hasPack": false,
     "packStock": 0,
-    "packDetail": "摇摇杯外盒:0"
+    "moq": 500,
+    "packCycle": 7,
+    "startDate": "2026-06-30",
+    "startDays": 31,
+    "outDate": "2026-07-17"
   },
   {
     "name": "抹茶坚果雪球曲奇",
@@ -194,7 +229,11 @@ const products = [
     "restock": 7,
     "hasPack": true,
     "packStock": null,
-    "packDetail": "无外包装"
+    "moq": 1800,
+    "packCycle": 7,
+    "startDate": "2026-07-13",
+    "startDays": 44,
+    "outDate": "2026-07-20"
   },
   {
     "name": "浓焙焙茶40g罐装",
@@ -206,7 +245,11 @@ const products = [
     "restock": 17,
     "hasPack": false,
     "packStock": 0,
-    "packDetail": "焙茶40g外纸盒:0 / 焙茶贴纸（外盒+罐体）:0"
+    "moq": 500,
+    "packCycle": 7,
+    "startDate": "2026-07-29",
+    "startDays": 60,
+    "outDate": "2026-08-15"
   },
   {
     "name": "真茶筅",
@@ -218,7 +261,11 @@ const products = [
     "restock": 4,
     "hasPack": true,
     "packStock": 150,
-    "packDetail": "真茶筅外盒贴纸:150"
+    "moq": 100,
+    "packCycle": 5,
+    "startDate": "2026-08-21",
+    "startDays": 83,
+    "outDate": "2026-08-25"
   },
   {
     "name": "数穗茶筅",
@@ -230,7 +277,11 @@ const products = [
     "restock": 10,
     "hasPack": false,
     "packStock": 20,
-    "packDetail": "数穗茶筅外盒贴纸:20"
+    "moq": 100,
+    "packCycle": 5,
+    "startDate": "2026-08-23",
+    "startDays": 85,
+    "outDate": "2026-09-02"
   },
   {
     "name": "渐绿茶筅立",
@@ -242,7 +293,11 @@ const products = [
     "restock": 5,
     "hasPack": true,
     "packStock": 155,
-    "packDetail": "渐绿茶筅立外盒:155"
+    "moq": 100,
+    "packCycle": 10,
+    "startDate": "2026-09-04",
+    "startDays": 97,
+    "outDate": "2026-09-09"
   },
   {
     "name": "素玉茶碗",
@@ -254,7 +309,11 @@ const products = [
     "restock": 7,
     "hasPack": false,
     "packStock": 0,
-    "packDetail": "素玉茶碗贴纸:0"
+    "moq": 50,
+    "packCycle": 5,
+    "startDate": "2026-09-12",
+    "startDays": 105,
+    "outDate": "2026-09-19"
   },
   {
     "name": "祝荣抹茶30g罐装",
@@ -266,10 +325,24 @@ const products = [
     "restock": 17,
     "hasPack": false,
     "packStock": 0,
-    "packDetail": "祝荣30g外纸盒:0 / 祝荣贴纸（外盒+罐体）:0"
+    "moq": 500,
+    "packCycle": 7,
+    "startDate": "2026-09-16",
+    "startDays": 109,
+    "outDate": "2026-10-03"
   }
 ]
 const colorMap = { urgent: '#ef4444', warning: '#f97316', ok: '#22c55e' }
+
+function fmtDate(dateStr) {
+  const d = new Date(dateStr)
+  const w = ['日','一','二','三','四','五','六'][d.getDay()]
+  return (d.getMonth()+1) + '月' + d.getDate() + '日（周' + w + '）'
+}
+function fmtStartHint(item) {
+  if (item.startDays <= 0) return '今天必须下单'
+  return fmtDate(item.startDate) + '前下单'
+}
 
 const sorted = [...products].sort((a, b) => a.days - b.days)
 new Chart(document.getElementById('daysChart'), {
@@ -282,7 +355,7 @@ new Chart(document.getElementById('daysChart'), {
     indexAxis: 'y',
     responsive: true,
     maintainAspectRatio: false,
-    plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx => ' ' + ctx.raw + ' 天' } } },
+    plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx => ' ' + ctx.raw + ' 天 · 断货 ' + fmtDate(sorted[ctx.dataIndex].outDate) } } },
     scales: {
       x: { grid: { color: '#f0f0f0' }, ticks: { font: { size: 11 } } },
       y: { grid: { display: false }, ticks: { font: { size: 11 } } }
@@ -309,30 +382,30 @@ new Chart(document.getElementById('salesChart'), {
 })
 
 const grid = document.getElementById('productGrid')
-const maxDays = Math.max(...products.map(p => p.days))
 products.forEach(p => {
-  const pct = Math.min(p.days / maxDays * 100, 100)
-  const color = colorMap[p.level]
-  let packHtml = ''
+  let packHtml
   if (p.packStock === null) {
-    packHtml = '<div class="pack-info">包装：无外包装</div>'
+    packHtml = '<div class="pack-info none">📦 无外包装</div>'
   } else if (p.hasPack) {
-    packHtml = '<div class="pack-info pack-ok">📦 包装库存 ' + p.packStock + ' 份（充足）· 走 ' + p.restock + ' 天周期</div>'
+    const batches = Math.floor(p.packStock / p.moq)
+    packHtml = '<div class="pack-info good">📦 包装 ' + p.packStock + ' 份 · 可撑 ' + batches + ' 次起订（' + p.moq + '份/次）</div>'
   } else {
-    packHtml = '<div class="pack-info pack-warn">⚠️ 包装库存 ' + p.packStock + ' 份（不足）· 需先订包装 · 走 ' + p.restock + ' 天周期</div>'
+    const need = p.moq - p.packStock
+    packHtml = '<div class="pack-info warn">⚠️ 包装仅 ' + p.packStock + ' 份 · 需先订 ' + need + '+ 份（' + p.packCycle + '天）</div>'
   }
+
   grid.innerHTML += `
     <div class="product-card ${p.level}">
-      <div class="name">${p.name}</div>
-      <div class="metrics">
-        <div><div class="val days-val">${p.days}天</div><div class="lbl">预计可用</div></div>
-        <div><div class="val">${p.stock}</div><div class="lbl">当前库存</div></div>
-        <div><div class="val">${p.daily}</div><div class="lbl">日均销量</div></div>
-        <div><div class="val">${p.restock}天</div><div class="lbl">补货周期</div></div>
+      <div class="pname">${p.name}</div>
+      <div class="key-dates">
+        <div class="row start"><span class="lbl">📅 应启动补货</span><span class="val">${fmtStartHint(p)}</span></div>
+        <div class="row out"><span class="lbl">🚫 预计断货</span><span class="val">${fmtDate(p.outDate)}</span></div>
       </div>
-      <div class="progress-wrap">
-        <div class="progress-bar"><div class="progress-fill" style="width:${pct}%;background:${color}"></div></div>
-        <div class="progress-label">近30天销量 ${p.s30} 件</div>
+      <div class="detail">
+        <div class="line"><span>当前库存</span><span>${p.stock} 件</span></div>
+        <div class="line"><span>日均销量</span><span>${p.daily} 件/天</span></div>
+        <div class="line"><span>近30天</span><span>${p.s30} 件</span></div>
+        <div class="line"><span>补货周期</span><span>${p.restock} 天</span></div>
       </div>
       ${packHtml}
     </div>
