@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>闲吉零售库存看板</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, 'PingFang SC', sans-serif; background: #f5f5f0; color: #1a1a1a; }
+  .header { background: #1a1a1a; color: #fff; padding: 24px 32px; display: flex; justify-content: space-between; align-items: center; }
+  .header h1 { font-size: 20px; font-weight: 600; letter-spacing: 0.5px; }
+  .header .date { font-size: 13px; color: #999; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 24px 32px; }
+
+  /* 顶部统计卡片 */
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px; }
+  .stat-card { background: #fff; border-radius: 12px; padding: 20px 24px; display: flex; align-items: center; gap: 16px; }
+  .stat-card .icon { font-size: 32px; }
+  .stat-card .info .num { font-size: 36px; font-weight: 700; line-height: 1; }
+  .stat-card .info .label { font-size: 13px; color: #888; margin-top: 4px; }
+  .stat-card.urgent { border-left: 4px solid #ef4444; }
+  .stat-card.warning { border-left: 4px solid #f97316; }
+  .stat-card.ok { border-left: 4px solid #22c55e; }
+  .stat-card.urgent .num { color: #ef4444; }
+  .stat-card.warning .num { color: #f97316; }
+  .stat-card.ok .num { color: #22c55e; }
+
+  /* 图表区 */
+  .charts { display: grid; grid-template-columns: 2fr 1fr; gap: 16px; margin-bottom: 24px; }
+  .chart-card { background: #fff; border-radius: 12px; padding: 20px 24px; }
+  .chart-card h2 { font-size: 14px; font-weight: 600; color: #555; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .chart-wrap { position: relative; }
+
+  /* 商品卡片列表 */
+  .section-title { font-size: 14px; font-weight: 600; color: #555; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px; }
+  .product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 24px; }
+  .product-card { background: #fff; border-radius: 10px; padding: 16px; border-top: 3px solid #e5e5e5; }
+  .product-card.urgent { border-top-color: #ef4444; }
+  .product-card.warning { border-top-color: #f97316; }
+  .product-card.ok { border-top-color: #22c55e; }
+  .product-card .name { font-size: 13px; font-weight: 600; margin-bottom: 10px; color: #1a1a1a; }
+  .product-card .metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+  .product-card .metric { }
+  .product-card .metric .val { font-size: 20px; font-weight: 700; line-height: 1; }
+  .product-card .metric .lbl { font-size: 11px; color: #999; margin-top: 2px; }
+  .product-card.urgent .days-val { color: #ef4444; }
+  .product-card.warning .days-val { color: #f97316; }
+  .product-card.ok .days-val { color: #22c55e; }
+
+  /* 进度条 */
+  .progress-wrap { margin-top: 10px; }
+  .progress-bar { height: 6px; background: #f0f0f0; border-radius: 3px; overflow: hidden; }
+  .progress-fill { height: 100%; border-radius: 3px; transition: width 0.3s; }
+  .progress-label { font-size: 11px; color: #999; margin-top: 3px; }
+
+  /* 包装预警 */
+  .pack-section { background: #fff; border-radius: 12px; padding: 20px 24px; margin-bottom: 24px; }
+  .pack-section h2 { font-size: 14px; font-weight: 600; color: #555; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .pack-notice { background: #fff7ed; border: 1px solid #fed7aa; border-radius: 8px; padding: 12px 16px; font-size: 13px; color: #9a3412; }
+
+  .footer { text-align: center; font-size: 12px; color: #bbb; padding: 16px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>闲吉零售 · 库存看板</h1>
+  <span class="date">数据日期：2026-05-30</span>
+</div>
+
+<div class="container">
+
+  <!-- 顶部统计 -->
+  <div class="stats">
+    <div class="stat-card urgent">
+      <div class="icon">🚨</div>
+      <div class="info">
+        <div class="num">1</div>
+        <div class="label">紧急补货（今天联系供应商）</div>
+      </div>
+    </div>
+    <div class="stat-card warning">
+      <div class="icon">⚡</div>
+      <div class="info">
+        <div class="num">3</div>
+        <div class="label">近期关注（本周内启动）</div>
+      </div>
+    </div>
+    <div class="stat-card ok">
+      <div class="icon">✅</div>
+      <div class="info">
+        <div class="num">8</div>
+        <div class="label">库存充足</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 图表区 -->
+  <div class="charts">
+    <div class="chart-card">
+      <h2>各商品预计可用天数</h2>
+      <div class="chart-wrap" style="height:280px">
+        <canvas id="daysChart"></canvas>
+      </div>
+    </div>
+    <div class="chart-card">
+      <h2>近30天销量占比</h2>
+      <div class="chart-wrap" style="height:280px">
+        <canvas id="salesChart"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- 商品卡片 -->
+  <div class="section-title">商品库存详情</div>
+  <div class="product-grid" id="productGrid"></div>
+
+  <!-- 包装提醒 -->
+  <div class="pack-section">
+    <h2>📦 包装台账提醒</h2>
+    <div class="pack-notice">
+      包装库存尚未填写——请打开飞书多维表格「📦 包装台账」，将每种包装的当前库存数量填入「当前库存（份）」列。填完后告诉我，我会在下次更新时加入包装预警分析。
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">每周一更新 · 数据来源：ERP 库存查询表</div>
+
+<script>
+const products = [
+  { name: '不锈钢茶勺',        level: 'urgent',  stock: 440,  daily: 42.9, days: 10,  s30: 1288, rw: 10, rwo: 10 },
+  { name: '云境抹茶40g',       level: 'warning', stock: 365,  daily: 12.9, days: 28,  s30: 386,  rw: 10, rwo: 17 },
+  { name: '听森抹茶50g',       level: 'warning', stock: 866,  daily: 26.2, days: 33,  s30: 785,  rw: 10, rwo: 17 },
+  { name: '云境抹茶100g',      level: 'warning', stock: 66,   daily: 1.9,  days: 35,  s30: 57,   rw: 10, rwo: 17 },
+  { name: '摇摇杯',            level: 'ok',      stock: 99,   daily: 2.1,  days: 48,  s30: 62,   rw: 10, rwo: 17 },
+  { name: '抹茶坚果雪球曲奇',  level: 'ok',      stock: 1177, daily: 22.9, days: 51,  s30: 686,  rw: 7,  rwo: 15 },
+  { name: '浓焙焙茶40g',       level: 'ok',      stock: 312,  daily: 4.1,  days: 77,  s30: 122,  rw: 10, rwo: 17 },
+  { name: '真茶筅',            level: 'ok',      stock: 131,  daily: 1.5,  days: 87,  s30: 45,   rw: 4,  rwo: 10 },
+  { name: '数穗茶筅',          level: 'ok',      stock: 168,  daily: 1.8,  days: 95,  s30: 53,   rw: 4,  rwo: 10 },
+  { name: '渐绿茶筅立',        level: 'ok',      stock: 95,   daily: 0.9,  days: 102, s30: 28,   rw: 5,  rwo: 12 },
+  { name: '素玉茶碗',          level: 'ok',      stock: 56,   daily: 0.5,  days: 112, s30: 15,   rw: 7,  rwo: 7  },
+  { name: '祝荣抹茶30g',       level: 'ok',      stock: 398,  daily: 3.2,  days: 126, s30: 95,   rw: 10, rwo: 17 },
+]
+
+const colorMap = { urgent: '#ef4444', warning: '#f97316', ok: '#22c55e' }
+
+// 横向条形图：可用天数
+const sorted = [...products].sort((a, b) => a.days - b.days)
+new Chart(document.getElementById('daysChart'), {
+  type: 'bar',
+  data: {
+    labels: sorted.map(p => p.name),
+    datasets: [{
+      data: sorted.map(p => p.days),
+      backgroundColor: sorted.map(p => colorMap[p.level]),
+      borderRadius: 4,
+    }]
+  },
+  options: {
+    indexAxis: 'y',
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      tooltip: { callbacks: { label: ctx => ` ${ctx.raw} 天` } }
+    },
+    scales: {
+      x: { grid: { color: '#f0f0f0' }, ticks: { font: { size: 11 } } },
+      y: { grid: { display: false }, ticks: { font: { size: 11 } } }
+    }
+  }
+})
+
+// 饼图：近30天销量占比（只显示前6）
+const top6 = [...products].sort((a, b) => b.s30 - a.s30).slice(0, 6)
+const others = products.filter(p => !top6.includes(p)).reduce((s, p) => s + p.s30, 0)
+new Chart(document.getElementById('salesChart'), {
+  type: 'doughnut',
+  data: {
+    labels: [...top6.map(p => p.name), '其他'],
+    datasets: [{
+      data: [...top6.map(p => p.s30), others],
+      backgroundColor: ['#1a1a1a','#4a4a4a','#6b7280','#9ca3af','#d1d5db','#e5e7eb','#f3f4f6'],
+      borderWidth: 0,
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { position: 'bottom', labels: { font: { size: 11 }, boxWidth: 10, padding: 8 } },
+      tooltip: { callbacks: { label: ctx => ` ${ctx.label}: ${ctx.raw}件` } }
+    }
+  }
+})
+
+// 商品卡片
+const grid = document.getElementById('productGrid')
+products.forEach(p => {
+  const maxDays = 130
+  const pct = Math.min(p.days / maxDays * 100, 100)
+  const color = colorMap[p.level]
+  grid.innerHTML += `
+    <div class="product-card ${p.level}">
+      <div class="name">${p.name}</div>
+      <div class="metrics">
+        <div class="metric">
+          <div class="val days-val">${p.days}天</div>
+          <div class="lbl">预计可用</div>
+        </div>
+        <div class="metric">
+          <div class="val">${p.stock}</div>
+          <div class="lbl">当前库存</div>
+        </div>
+        <div class="metric">
+          <div class="val">${p.daily}</div>
+          <div class="lbl">日均销量</div>
+        </div>
+        <div class="metric">
+          <div class="val">${p.rwo}天</div>
+          <div class="lbl">补货周期</div>
+        </div>
+      </div>
+      <div class="progress-wrap">
+        <div class="progress-bar">
+          <div class="progress-fill" style="width:${pct}%;background:${color}"></div>
+        </div>
+        <div class="progress-label">近30天销量 ${p.s30} 件</div>
+      </div>
+    </div>
+  `
+})
+</script>
+</body>
+</html>
