@@ -83,7 +83,7 @@
 
 <div class="header">
   <h1>闲吉零售 · 库存看板</h1>
-  <span class="date">数据更新：2026-06-05</span>
+  <span class="date">数据更新：2026-06-08</span>
 </div>
 
 <div class="container">
@@ -96,42 +96,38 @@
         <div class="label">紧急 · 立即下单</div>
       </div>
       <div class="items"><div class="item-row">
-      <div class="item-name">不锈钢茶勺</div>
+      <div class="item-name">云境抹茶40g罐装</div>
       <div class="item-action" style="color:#ef4444">今天必须下单</div>
-      <div class="item-meta">断货 6月9日（周二）</div>
+      <div class="item-meta">断货 6月21日（周日）</div>
     </div></div>
     </div>
     <div class="stat-card warning">
       <div class="head">
         <div class="icon">⚡</div>
-        <div class="num">1</div>
+        <div class="num">0</div>
         <div class="label">本周内启动</div>
       </div>
-      <div class="items"><div class="item-row">
-      <div class="item-name">云境抹茶40g罐装</div>
-      <div class="item-action" style="color:#ef4444">今天必须下单</div>
-      <div class="item-meta">断货 6月20日（周六）</div>
-    </div></div>
+      <div class="items"><div class="item"><span class="item-name" style="color:#bbb">无</span></div></div>
     </div>
     <div class="stat-card ok">
       <div class="head">
         <div class="icon">✅</div>
-        <div class="num">10</div>
+        <div class="num">11</div>
         <div class="label">库存充足</div>
       </div>
       <div class="items"><div class="item-row">
       <div class="item-name">听森抹茶粉50g罐装</div>
-      <div class="item-action" style="color:#22c55e">6月14日（周日）前下单</div>
+      <div class="item-action" style="color:#f97316">6月14日（周日）前下单</div>
       <div class="item-meta">断货 6月29日（周一）</div>
     </div><div class="item-row">
-      <div class="item-name">云境抹茶100g袋装</div>
-      <div class="item-action" style="color:#22c55e">6月13日（周六）前下单</div>
-      <div class="item-meta">断货 7月3日（周五）</div>
+      <div class="item-name">不锈钢茶勺</div>
+      <div class="item-action" style="color:#f97316">6月15日（周一）前下单</div>
+      <div class="item-meta">断货 6月30日（周二）</div>
     </div><div class="item-row">
-      <div class="item-name">抹茶坚果雪球曲奇</div>
-      <div class="item-action" style="color:#22c55e">6月25日（周四）前下单</div>
-      <div class="item-meta">断货 7月18日（周六）</div>
-    </div><div class="item-row"><div class="item-meta">…还有 7 个充足</div></div></div>
+      <div class="item-name">云境抹茶100g袋装</div>
+      <div class="item-action" style="color:#f97316">6月15日（周一）前下单</div>
+      <div class="item-meta">断货 7月5日（周日）</div>
+    </div><div class="item-row"><div class="item-meta">…还有 8 个充足</div></div></div>
     </div>
   </div>
 
@@ -156,36 +152,13 @@
 <script>
 const products = [
   {
-    "name": "不锈钢茶勺",
-    "level": "urgent",
-    "stock": 173,
-    "daily": 47.1,
-    "daily7": 46.7,
-    "days": 4,
-    "s30": 1414,
-    "restock": 10,
-    "productCycle": 10,
-    "packCycle": 0,
-    "productSupplier": "佰汇晨",
-    "packSupplier": null,
-    "hasPack": true,
-    "packStock": null,
-    "moq": 1000,
-    "startDate": "2026-05-25",
-    "startDays": -11,
-    "outDate": "2026-06-09",
-    "safetyStock": 707,
-    "safetyDays": 15,
-    "trend": null
-  },
-  {
     "name": "云境抹茶40g罐装",
-    "level": "warning",
-    "stock": 241,
-    "daily": 16.5,
-    "daily7": 20.1,
-    "days": 15,
-    "s30": 496,
+    "level": "urgent",
+    "stock": 207,
+    "daily": 16.3,
+    "daily7": 18,
+    "days": 13,
+    "s30": 489,
     "restock": 13,
     "productCycle": 10,
     "packCycle": 7,
@@ -194,21 +167,21 @@ const products = [
     "hasPack": false,
     "packStock": 0,
     "moq": 1000,
-    "startDate": "2026-05-31",
-    "startDays": -5,
-    "outDate": "2026-06-20",
-    "safetyStock": 322,
+    "startDate": "2026-06-01",
+    "startDays": -7,
+    "outDate": "2026-06-21",
+    "safetyStock": 318,
     "safetyDays": 20,
     "trend": null
   },
   {
     "name": "听森抹茶粉50g罐装",
     "level": "ok",
-    "stock": 681,
-    "daily": 28.1,
-    "daily7": 29.7,
-    "days": 24,
-    "s30": 843,
+    "stock": 593,
+    "daily": 28.8,
+    "daily7": 31.6,
+    "days": 21,
+    "s30": 865,
     "restock": 10,
     "productCycle": 10,
     "packCycle": 7,
@@ -218,20 +191,43 @@ const products = [
     "packStock": 1218,
     "moq": 1000,
     "startDate": "2026-06-14",
-    "startDays": 9,
+    "startDays": 6,
     "outDate": "2026-06-29",
-    "safetyStock": 422,
+    "safetyStock": 433,
+    "safetyDays": 15,
+    "trend": null
+  },
+  {
+    "name": "不锈钢茶勺",
+    "level": "ok",
+    "stock": 1064,
+    "daily": 47.6,
+    "daily7": 44.4,
+    "days": 22,
+    "s30": 1429,
+    "restock": 10,
+    "productCycle": 10,
+    "packCycle": 0,
+    "productSupplier": "佰汇晨",
+    "packSupplier": null,
+    "hasPack": true,
+    "packStock": null,
+    "moq": 1000,
+    "startDate": "2026-06-15",
+    "startDays": 7,
+    "outDate": "2026-06-30",
+    "safetyStock": 715,
     "safetyDays": 15,
     "trend": null
   },
   {
     "name": "云境抹茶100g袋装",
     "level": "ok",
-    "stock": 56,
-    "daily": 2,
-    "daily7": 1.9,
-    "days": 28,
-    "s30": 61,
+    "stock": 52,
+    "daily": 1.9,
+    "daily7": 1.7,
+    "days": 27,
+    "s30": 57,
     "restock": 13,
     "productCycle": 10,
     "packCycle": 7,
@@ -240,44 +236,21 @@ const products = [
     "hasPack": false,
     "packStock": 0,
     "moq": 100,
-    "startDate": "2026-06-13",
-    "startDays": 8,
-    "outDate": "2026-07-03",
-    "safetyStock": 39,
+    "startDate": "2026-06-15",
+    "startDays": 7,
+    "outDate": "2026-07-05",
+    "safetyStock": 38,
     "safetyDays": 20,
     "trend": null
   },
   {
-    "name": "抹茶坚果雪球曲奇",
-    "level": "ok",
-    "stock": 1084,
-    "daily": 25.2,
-    "daily7": 13.3,
-    "days": 43,
-    "s30": 756,
-    "restock": 15,
-    "productCycle": 15,
-    "packCycle": 0,
-    "productSupplier": "广东新盟",
-    "packSupplier": null,
-    "hasPack": true,
-    "packStock": null,
-    "moq": 1800,
-    "startDate": "2026-06-25",
-    "startDays": 20,
-    "outDate": "2026-07-18",
-    "safetyStock": 567,
-    "safetyDays": 23,
-    "trend": "📉 近7天销量比月均慢47%，可酌情减少"
-  },
-  {
     "name": "摇摇杯",
     "level": "ok",
-    "stock": 99,
-    "daily": 2,
-    "daily7": 0,
-    "days": 49,
-    "s30": 61,
+    "stock": 98,
+    "daily": 2.1,
+    "daily7": 0.1,
+    "days": 47,
+    "s30": 62,
     "restock": 13,
     "productCycle": 10,
     "packCycle": 7,
@@ -286,21 +259,21 @@ const products = [
     "hasPack": false,
     "packStock": 0,
     "moq": 500,
-    "startDate": "2026-07-04",
-    "startDays": 29,
-    "outDate": "2026-07-24",
-    "safetyStock": 39,
-    "safetyDays": 20,
-    "trend": null
+    "startDate": "2026-07-08",
+    "startDays": 30,
+    "outDate": "2026-07-25",
+    "safetyStock": 35,
+    "safetyDays": 17,
+    "trend": "📉 近7天销量比月均慢93%，可酌情减少"
   },
   {
     "name": "真茶筅",
     "level": "ok",
-    "stock": 113,
-    "daily": 2,
+    "stock": 106,
+    "daily": 2.1,
     "daily7": 3,
-    "days": 57,
-    "s30": 59,
+    "days": 50,
+    "s30": 64,
     "restock": 4,
     "productCycle": 4,
     "packCycle": 5,
@@ -309,21 +282,21 @@ const products = [
     "hasPack": true,
     "packStock": 150,
     "moq": 100,
-    "startDate": "2026-07-24",
-    "startDays": 49,
-    "outDate": "2026-08-01",
-    "safetyStock": 15,
+    "startDate": "2026-07-20",
+    "startDays": 42,
+    "outDate": "2026-07-28",
+    "safetyStock": 16,
     "safetyDays": 8,
-    "trend": "📈 近7天销量比月均快53%，建议多备30%"
+    "trend": "📈 近7天销量比月均快41%，建议多备30%"
   },
   {
     "name": "浓焙焙茶40g罐装",
     "level": "ok",
-    "stock": 281,
-    "daily": 4.7,
-    "daily7": 5.4,
-    "days": 60,
-    "s30": 141,
+    "stock": 265,
+    "daily": 5.1,
+    "daily7": 5.6,
+    "days": 52,
+    "s30": 153,
     "restock": 13,
     "productCycle": 10,
     "packCycle": 7,
@@ -332,21 +305,44 @@ const products = [
     "hasPack": false,
     "packStock": 0,
     "moq": 500,
-    "startDate": "2026-07-15",
-    "startDays": 40,
-    "outDate": "2026-08-04",
-    "safetyStock": 92,
+    "startDate": "2026-07-10",
+    "startDays": 32,
+    "outDate": "2026-07-30",
+    "safetyStock": 100,
     "safetyDays": 20,
     "trend": null
   },
   {
+    "name": "抹茶坚果雪球曲奇",
+    "level": "ok",
+    "stock": 1081,
+    "daily": 20.9,
+    "daily7": 13.7,
+    "days": 52,
+    "s30": 628,
+    "restock": 15,
+    "productCycle": 15,
+    "packCycle": 0,
+    "productSupplier": "广东新盟",
+    "packSupplier": null,
+    "hasPack": true,
+    "packStock": null,
+    "moq": 1800,
+    "startDate": "2026-07-07",
+    "startDays": 29,
+    "outDate": "2026-07-30",
+    "safetyStock": 471,
+    "safetyDays": 23,
+    "trend": "📉 近7天销量比月均慢34%，可酌情减少"
+  },
+  {
     "name": "渐绿茶筅立",
     "level": "ok",
-    "stock": 83,
-    "daily": 1.1,
-    "daily7": 1.7,
-    "days": 73,
-    "s30": 34,
+    "stock": 81,
+    "daily": 1.2,
+    "daily7": 1.9,
+    "days": 69,
+    "s30": 35,
     "restock": 5,
     "productCycle": 5,
     "packCycle": 10,
@@ -355,21 +351,21 @@ const products = [
     "hasPack": true,
     "packStock": 155,
     "moq": 100,
-    "startDate": "2026-08-08",
-    "startDays": 64,
-    "outDate": "2026-08-17",
-    "safetyStock": 10,
+    "startDate": "2026-08-07",
+    "startDays": 60,
+    "outDate": "2026-08-16",
+    "safetyStock": 11,
     "safetyDays": 9,
-    "trend": "📈 近7天销量比月均快51%，建议多备30%"
+    "trend": "📈 近7天销量比月均快59%，建议多备30%"
   },
   {
     "name": "数穗茶筅",
     "level": "ok",
-    "stock": 153,
-    "daily": 2,
-    "daily7": 2.6,
-    "days": 76,
-    "s30": 60,
+    "stock": 150,
+    "daily": 1.9,
+    "daily7": 2.3,
+    "days": 79,
+    "s30": 57,
     "restock": 8,
     "productCycle": 4,
     "packCycle": 5,
@@ -378,20 +374,20 @@ const products = [
     "hasPack": false,
     "packStock": 20,
     "moq": 100,
-    "startDate": "2026-08-08",
-    "startDays": 64,
-    "outDate": "2026-08-20",
-    "safetyStock": 24,
+    "startDate": "2026-08-14",
+    "startDays": 67,
+    "outDate": "2026-08-26",
+    "safetyStock": 23,
     "safetyDays": 12,
     "trend": null
   },
   {
     "name": "素玉茶碗",
     "level": "ok",
-    "stock": 52,
+    "stock": 50,
     "daily": 0.6,
-    "daily7": 0.7,
-    "days": 87,
+    "daily7": 0.9,
+    "days": 83,
     "s30": 18,
     "restock": 10,
     "productCycle": 7,
@@ -401,21 +397,21 @@ const products = [
     "hasPack": false,
     "packStock": 0,
     "moq": 50,
-    "startDate": "2026-08-16",
-    "startDays": 72,
-    "outDate": "2026-08-31",
-    "safetyStock": 9,
-    "safetyDays": 15,
-    "trend": null
+    "startDate": "2026-08-12",
+    "startDays": 65,
+    "outDate": "2026-08-30",
+    "safetyStock": 11,
+    "safetyDays": 18,
+    "trend": "📈 近7天销量比月均快43%，建议多备30%"
   },
   {
     "name": "祝荣抹茶30g罐装",
     "level": "ok",
-    "stock": 376,
-    "daily": 3.7,
-    "daily7": 3.3,
-    "days": 101,
-    "s30": 112,
+    "stock": 372,
+    "daily": 3.1,
+    "daily7": 3,
+    "days": 120,
+    "s30": 93,
     "restock": 13,
     "productCycle": 10,
     "packCycle": 7,
@@ -424,10 +420,10 @@ const products = [
     "hasPack": false,
     "packStock": 0,
     "moq": 500,
-    "startDate": "2026-08-25",
-    "startDays": 81,
-    "outDate": "2026-09-14",
-    "safetyStock": 73,
+    "startDate": "2026-09-16",
+    "startDays": 100,
+    "outDate": "2026-10-06",
+    "safetyStock": 61,
     "safetyDays": 20,
     "trend": null
   }
