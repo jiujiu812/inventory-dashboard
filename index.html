@@ -83,7 +83,7 @@
 
 <div class="header">
   <h1>闲吉零售 · 库存看板</h1>
-  <span class="date">数据更新：2026-06-16</span>
+  <span class="date">数据更新：2026-07-27</span>
 </div>
 
 <div class="container">
@@ -92,33 +92,33 @@
     <div class="stat-card urgent">
       <div class="head">
         <div class="icon">🚨</div>
-        <div class="num">2</div>
+        <div class="num">3</div>
         <div class="label">紧急 · 立即下单</div>
       </div>
       <div class="items"><div class="item-row">
       <div class="item-name">云境抹茶40g罐装</div>
       <div class="item-action" style="color:#ef4444">今天必须下单</div>
-      <div class="item-meta">断货 6月21日（周日）</div>
+      <div class="item-meta">断货 8月1日（周六）</div>
     </div><div class="item-row">
       <div class="item-name">不锈钢茶勺</div>
       <div class="item-action" style="color:#ef4444">今天必须下单</div>
-      <div class="item-meta">断货 6月25日（周四）</div>
+      <div class="item-meta">断货 8月5日（周三）</div>
+    </div><div class="item-row">
+      <div class="item-name">听森抹茶粉50g罐装</div>
+      <div class="item-action" style="color:#ef4444">今天必须下单</div>
+      <div class="item-meta">断货 8月8日（周六）</div>
     </div></div>
     </div>
     <div class="stat-card warning">
       <div class="head">
         <div class="icon">⚡</div>
-        <div class="num">2</div>
+        <div class="num">1</div>
         <div class="label">本周内启动</div>
       </div>
       <div class="items"><div class="item-row">
-      <div class="item-name">听森抹茶粉50g罐装</div>
-      <div class="item-action" style="color:#ef4444">今天必须下单</div>
-      <div class="item-meta">断货 6月28日（周日）</div>
-    </div><div class="item-row">
       <div class="item-name">云境抹茶100g袋装</div>
       <div class="item-action" style="color:#ef4444">今天必须下单</div>
-      <div class="item-meta">断货 7月2日（周四）</div>
+      <div class="item-meta">断货 8月12日（周三）</div>
     </div></div>
     </div>
     <div class="stat-card ok">
@@ -129,16 +129,16 @@
       </div>
       <div class="items"><div class="item-row">
       <div class="item-name">真茶筅</div>
-      <div class="item-action" style="color:#22c55e">7月12日（周日）前下单</div>
-      <div class="item-meta">断货 7月18日（周六）</div>
+      <div class="item-action" style="color:#22c55e">8月22日（周六）前下单</div>
+      <div class="item-meta">断货 8月28日（周五）</div>
     </div><div class="item-row">
       <div class="item-name">抹茶坚果雪球曲奇</div>
-      <div class="item-action" style="color:#22c55e">6月27日（周六）前下单</div>
-      <div class="item-meta">断货 7月20日（周一）</div>
+      <div class="item-action" style="color:#22c55e">8月7日（周五）前下单</div>
+      <div class="item-meta">断货 8月30日（周日）</div>
     </div><div class="item-row">
       <div class="item-name">浓焙焙茶40g罐装</div>
-      <div class="item-action" style="color:#22c55e">7月3日（周五）前下单</div>
-      <div class="item-meta">断货 7月23日（周四）</div>
+      <div class="item-action" style="color:#22c55e">8月13日（周四）前下单</div>
+      <div class="item-meta">断货 9月2日（周三）</div>
     </div><div class="item-row"><div class="item-meta">…还有 5 个充足</div></div></div>
     </div>
   </div>
@@ -171,19 +171,19 @@ const products = [
     "daily7": 15.4,
     "days": 5,
     "s30": 514,
-    "restock": 10,
+    "restock": 13,
     "productCycle": 10,
     "packCycle": 7,
     "productSupplier": "斐川",
     "packSupplier": "磊信+鹏达",
-    "hasPack": true,
-    "packStock": 1000,
+    "hasPack": false,
+    "packStock": 520,
     "moq": 1000,
-    "startDate": "2026-06-06",
-    "startDays": -10,
-    "outDate": "2026-06-21",
-    "safetyStock": 257,
-    "safetyDays": 15,
+    "startDate": "2026-07-12",
+    "startDays": -15,
+    "outDate": "2026-08-01",
+    "safetyStock": 334,
+    "safetyDays": 20,
     "trend": null
   },
   {
@@ -202,34 +202,34 @@ const products = [
     "hasPack": true,
     "packStock": null,
     "moq": 1000,
-    "startDate": "2026-06-07",
+    "startDate": "2026-07-18",
     "startDays": -9,
-    "outDate": "2026-06-25",
+    "outDate": "2026-08-05",
     "safetyStock": 1007,
     "safetyDays": 18,
     "trend": "📈 近7天销量比月均快30%，建议多备30%"
   },
   {
     "name": "听森抹茶粉50g罐装",
-    "level": "warning",
+    "level": "urgent",
     "stock": 360,
     "daily": 30.7,
     "daily7": 28.1,
     "days": 12,
     "s30": 921,
-    "restock": 10,
+    "restock": 13,
     "productCycle": 10,
     "packCycle": 7,
     "productSupplier": "斐川",
     "packSupplier": "磊信+鹏达",
-    "hasPack": true,
-    "packStock": 1218,
+    "hasPack": false,
+    "packStock": 359,
     "moq": 1000,
-    "startDate": "2026-06-13",
-    "startDays": -3,
-    "outDate": "2026-06-28",
-    "safetyStock": 461,
-    "safetyDays": 15,
+    "startDate": "2026-07-19",
+    "startDays": -8,
+    "outDate": "2026-08-08",
+    "safetyStock": 599,
+    "safetyDays": 20,
     "trend": null
   },
   {
@@ -248,9 +248,9 @@ const products = [
     "hasPack": false,
     "packStock": 0,
     "moq": 100,
-    "startDate": "2026-06-08",
+    "startDate": "2026-07-19",
     "startDays": -8,
-    "outDate": "2026-07-02",
+    "outDate": "2026-08-12",
     "safetyStock": 43,
     "safetyDays": 24,
     "trend": "📈 近7天销量比月均快71%，建议多备30%"
@@ -271,9 +271,9 @@ const products = [
     "hasPack": true,
     "packStock": 150,
     "moq": 100,
-    "startDate": "2026-07-12",
+    "startDate": "2026-08-22",
     "startDays": 26,
-    "outDate": "2026-07-18",
+    "outDate": "2026-08-28",
     "safetyStock": 16,
     "safetyDays": 6,
     "trend": null
@@ -294,9 +294,9 @@ const products = [
     "hasPack": true,
     "packStock": null,
     "moq": 1800,
-    "startDate": "2026-06-27",
+    "startDate": "2026-08-07",
     "startDays": 11,
-    "outDate": "2026-07-20",
+    "outDate": "2026-08-30",
     "safetyStock": 522,
     "safetyDays": 23,
     "trend": null
@@ -317,9 +317,9 @@ const products = [
     "hasPack": false,
     "packStock": 0,
     "moq": 500,
-    "startDate": "2026-07-03",
+    "startDate": "2026-08-13",
     "startDays": 17,
-    "outDate": "2026-07-23",
+    "outDate": "2026-09-02",
     "safetyStock": 114,
     "safetyDays": 20,
     "trend": null
@@ -340,9 +340,9 @@ const products = [
     "hasPack": false,
     "packStock": 20,
     "moq": 100,
-    "startDate": "2026-07-14",
+    "startDate": "2026-08-24",
     "startDays": 28,
-    "outDate": "2026-07-29",
+    "outDate": "2026-09-08",
     "safetyStock": 41,
     "safetyDays": 15,
     "trend": "📈 近7天销量比月均快34%，建议多备30%"
@@ -363,9 +363,9 @@ const products = [
     "hasPack": true,
     "packStock": 155,
     "moq": 100,
-    "startDate": "2026-07-24",
+    "startDate": "2026-09-03",
     "startDays": 38,
-    "outDate": "2026-08-02",
+    "outDate": "2026-09-12",
     "safetyStock": 13,
     "safetyDays": 9,
     "trend": "📈 近7天销量比月均快43%，建议多备30%"
@@ -386,9 +386,9 @@ const products = [
     "hasPack": false,
     "packStock": 0,
     "moq": 50,
-    "startDate": "2026-08-21",
+    "startDate": "2026-10-01",
     "startDays": 66,
-    "outDate": "2026-09-05",
+    "outDate": "2026-10-16",
     "safetyStock": 9,
     "safetyDays": 15,
     "trend": null
@@ -409,9 +409,9 @@ const products = [
     "hasPack": false,
     "packStock": 0,
     "moq": 500,
-    "startDate": "2026-08-14",
+    "startDate": "2026-09-24",
     "startDays": 59,
-    "outDate": "2026-09-07",
+    "outDate": "2026-10-18",
     "safetyStock": 24,
     "safetyDays": 24,
     "trend": "📈 近7天销量比月均快166%，建议多备30%"
@@ -432,9 +432,9 @@ const products = [
     "hasPack": false,
     "packStock": 0,
     "moq": 500,
-    "startDate": "2026-09-13",
+    "startDate": "2026-10-24",
     "startDays": 89,
-    "outDate": "2026-10-03",
+    "outDate": "2026-11-13",
     "safetyStock": 63,
     "safetyDays": 20,
     "trend": null
